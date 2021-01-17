@@ -1,13 +1,21 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import newTrip from '../axios-routes';
 
 const AddTrip = () => {
 	const [time, setTime] = useState();
 	const [store, setStore] = useState();
 	const [quantity, setQuantity] = useState();
+	const [container, setContainer] = useState();
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		const addTrip = {
+			time: time,
+			store: store,
+			quantity: { quantity, container },
+		};
+		newTrip(addTrip);
 	};
 
 	return (
@@ -40,9 +48,33 @@ const AddTrip = () => {
 						inline
 						onChange={e => setQuantity(e.target.value)}
 					/>
-					<Form.Check inline label='item(s)' type='radio' />
-					<Form.Check inline label='bag(s)' type='radio' />
-					<Form.Check inline label='truck(s)' type='radio' />
+					<Form.Check
+						inline
+						name='container'
+						label='Item(s)'
+						type='radio'
+						value='Item'
+						checked={container === 'Item'}
+						onClick={() => setContainer('Item')}
+					/>
+					<Form.Check
+						inline
+						name='container'
+						label='Bag(s)'
+						type='radio'
+						value='Bag'
+						checked={container === 'Bag'}
+						onClick={() => setContainer('Bag')}
+					/>
+					<Form.Check
+						inline
+						name='container'
+						label='Truck(s)'
+						type='radio'
+						value='Truck'
+						checked={container === 'Truck'}
+						onClick={() => setContainer('Truck')}
+					/>
 				</Form.Group>
 
 				<Button onClick={handleSubmit} className='button' type='submit'>
