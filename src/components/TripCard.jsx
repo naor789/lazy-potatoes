@@ -22,15 +22,6 @@ export default function TripCard(props) {
           <RequestModal show={modalShow} onHide={() => setModalShow(false)} />
         </Card.Body>
       </Card>
-    // <div  style={{ width: '18rem' }} >
-    //   <div>
-    //     <h2></h2>
-    //     <p></p>
-    //     <p></p>
-    // <p>
-    //   Able to carry {quantity} {container}
-    // </p>
-    // </div>
-    // </div>
   );
+
 }
