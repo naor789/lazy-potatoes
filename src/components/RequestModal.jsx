@@ -22,7 +22,8 @@ export default function RequestModal(props) {
       tripId: id,
       reqItem1,
       reqItem2,
-      reqItem3
+      reqItem3,
+      reqDropOff
     }
     console.log(requestObject)
     props.onHide()
