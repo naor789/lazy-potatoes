@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { axios } from 'axios'
 import { baseURL } from '../axios-routes'
-import { ListGroup, Button, ListGroupItem } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import TripCard from './TripCard'
 
 import React from 'react'
@@ -37,11 +37,11 @@ export default function AllTrips() {
     <>
       <h1>All Trips</h1>
       {allTrips && (
-        <div className='tripList'>
+        <Row className='m-3'>
           {allTrips.map((trip) => (
             <TripCard key={trip.id} trip={trip} />
           ))}
-        </div>
+        </Row>
       )}
     </>
   )
