@@ -5,6 +5,7 @@ import Alert from 'react-bootstrap/Alert'
 
 
 export default function RequestModal(props) {
+    
   const { id, area, time, store, quantity } = props.trip
 
   const [reqItem1, setReqItem1] = useState('')

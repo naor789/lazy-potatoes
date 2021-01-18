@@ -3,6 +3,7 @@ import { Button , Card} from 'react-bootstrap'
 import RequestModal from './RequestModal'
 
 export default function TripCard(props) {
+
   const [modalShow, setModalShow] = React.useState(false)
   const { id, area, time, store, container, quantity } = props.trip
 
@@ -19,7 +20,10 @@ export default function TripCard(props) {
             Able to carry {quantity}
           </Card.Text>
           <Button onClick={() => setModalShow(true)}>Make a Request</Button>
-          <RequestModal show={modalShow} onHide={() => setModalShow(false)} />
+          <RequestModal 
+          trip={props.trip}
+          show={modalShow} 
+          onHide={() => setModalShow(false)} />
         </Card.Body>
       </Card>
   );
