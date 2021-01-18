@@ -18,19 +18,19 @@ export default function AllTrips() {
       },
       {
         id: 2,
-        area: 'florentine',
+        area: 'jaffa',
         time: 12,
         store: 'AMPM',
         container: 'bag',
-        quantity: 2
+        quantity: 3
       },
       {
         id: 3,
-        area: 'florentine',
+        area: 'tel aviv',
         time: 12,
         store: 'AMPM',
         container: 'bag',
-        quantity: 2
+        quantity: 1
       }])
 
   return (

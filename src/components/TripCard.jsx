@@ -17,7 +17,10 @@ export default function TripCard(props) {
         </p>
         <Button onClick={() => setModalShow(true)}>Make a Request</Button>
       </div>
-      <RequestModal show={modalShow} onHide={() => setModalShow(false)} />
+      <RequestModal 
+      trip={props.trip}
+      show={modalShow} 
+      onHide={() => setModalShow(false)} />
     </div>
   )
 }
