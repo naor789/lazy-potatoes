@@ -7,20 +7,33 @@ const AddTrip = () => {
 	const [store, setStore] = useState();
 	const [quantity, setQuantity] = useState();
 	const [container, setContainer] = useState();
+	const [area, setArea] = useState();
 
 	const handleSubmit = e => {
 		e.preventDefault();
+
 		const addTrip = {
+			area: area,
 			time: time,
 			store: store,
-			quantity: { quantity, container },
+			container: container,
+			quantity: quantity,
 		};
-		newTrip(addTrip);
+		// newTrip(addTrip);
 	};
 
 	return (
 		<>
 			<Form onSubmit={handleSubmit}>
+				<Form.Group id='area'>
+					<Form.Label>Area</Form.Label>
+					<Form.Control
+						type='text'
+						value={area}
+						required
+						onChange={e => setArea(e.target.value)}
+					/>
+				</Form.Group>
 				<Form.Group id='time'>
 					<Form.Label>When?</Form.Label>
 					<Form.Control
@@ -53,8 +66,7 @@ const AddTrip = () => {
 						name='container'
 						label='Item(s)'
 						type='radio'
-						value='Item'
-						checked={container === 'Item'}
+						value={container === 'Item'}
 						onClick={() => setContainer('Item')}
 					/>
 					<Form.Check
@@ -62,8 +74,7 @@ const AddTrip = () => {
 						name='container'
 						label='Bag(s)'
 						type='radio'
-						value='Bag'
-						checked={container === 'Bag'}
+						value={container === 'Bag'}
 						onClick={() => setContainer('Bag')}
 					/>
 					<Form.Check
@@ -71,8 +82,7 @@ const AddTrip = () => {
 						name='container'
 						label='Truck(s)'
 						type='radio'
-						value='Truck'
-						checked={container === 'Truck'}
+						value={container === 'Truck'}
 						onClick={() => setContainer('Truck')}
 					/>
 				</Form.Group>
