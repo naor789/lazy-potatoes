@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import ModalLogIn from './components/ModalLogIn';
 import ModalSignUp from './components/ModalSignUp';
 import AddTrip from './components/add-trip';
+import AllTrips from './components/AllTrips';
 
 // import logo from "./img/logo.png";
 
@@ -40,7 +41,7 @@ function App() {
 
 				<Switch>
 					<Route exact path='/'>
-						<Home></Home>
+						<Home/>
 					</Route>
 					<Route path='/profilesetting'></Route>
 					<Route path='/add-trip'>
