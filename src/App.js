@@ -23,14 +23,14 @@ function App() {
 							<Link className=' nav' to='/'>
 								Home
 							</Link>
-							<Link className=' nav' to='/profilesetting'>
+							<Link className=' nav-profile' to='/profilesetting'>
 								Profile Setting
 							</Link>
-							<Link className=' nav' to='/add-trip'>
+							{/* <Link className=' nav' to='/add-trip'>
 								Add a Trip
 							</Link>	<Link className=' nav' to='/alltrips'>
 								All Trips
-						</Link>
+						</Link> */}
 							<form className='form-inline my-2 my-lg-0 float-end'>
 								<ModalLogIn />
 								<ModalSignUp />
@@ -50,6 +50,7 @@ function App() {
 					<Route path='/alltrips'>
 						<AllTrips />
 					</Route>
+			
 				</Switch>
 			</div>
 		</Router>

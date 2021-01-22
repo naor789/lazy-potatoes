@@ -47,7 +47,7 @@ export default function RequestModal(props) {
             Oh no! You got an error 🙀
         </Alert.Heading>
         <p>
-          You must fill out at least one requested item and your informaiton in
+          You must fill out at least one requested item and your information in
           order to send a request...
         </p>
       </Alert>
