@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button , Card} from 'react-bootstrap'
-import RequestModal from './RequestModal'
+import TripCardModal from './TripCardModal'
 
 export default function TripCard(props) {
 
@@ -13,14 +13,14 @@ export default function TripCard(props) {
           <Card.Title>Card Title</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             Area: {area}
-          </Card.Subtitle>
+        </Card.Subtitle>
           <Card.Text>Store {store}</Card.Text>
           <Card.Text>Time: {time}</Card.Text>
           <Card.Text>
             Able to carry {quantity}
           </Card.Text>
           <Button onClick={() => setModalShow(true)}>Make a Request</Button>
-          <RequestModal 
+          <TripCardModal 
           trip={props.trip}
           show={modalShow} 
           onHide={() => setModalShow(false)} />
