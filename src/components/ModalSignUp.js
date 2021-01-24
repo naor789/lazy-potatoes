@@ -20,7 +20,7 @@ export default function ModalSignUp() {
 	const handleSubmit = async event => {
 		event.preventDefault();
 		const response = await axios.post(
-			'http://localhost:5000/api/user/register',
+			'http://localhost:5000/api/users/register',
 			{
 				email: email,
 				password: password,
@@ -28,11 +28,12 @@ export default function ModalSignUp() {
 				firstName: firstName,
 				lastName: lastName,
 				phoneNumber: phoneNumber,
+				points: 20,
 			}
 		);
 		console.log(response);
 		setModalSignUp(false);
-		const logIn = await axios.post('http://localhost:5000/api/user/login', {
+		const logIn = await axios.post('http://localhost:5000/api/users/login', {
 			email: email,
 			password: password,
 		});
@@ -41,7 +42,7 @@ export default function ModalSignUp() {
 		}
 
 		history.push('/');
-		const reload = window.location.reload();
+		// const reload = window.location.reload();
 	};
 
 	return (

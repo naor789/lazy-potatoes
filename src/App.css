@@ -8,43 +8,92 @@ body {
   justify-content: center;
 }
 
-.img {
-  margin-top: -122px;
-  margin-left: 126px;
+
+.imgA {
+    margin-top: 14px;
+    margin-left: -28px;
+  position: absolute;
+}
+.imgD {
+    margin-top: 14px;
+    margin-left: 360px;
+  position: absolute;
 }
 
+
+
 .nav {
-  /* color: black; */
-  /* color: white; */
   color: black;
   font-size: 25px;
   text-decoration: none;
-margin: auto;
 }
 
-/* .nav:hover {
+.nav-profile {
+  color: black;
+  font-size: 25px;
+  text-decoration: none;
+  margin-left: -852px;
+}
+
+.nav:hover,
+.nav-profile:hover {
   color: darkslategray;
-} */
+}
 
 .bg-dark {
   /* background-color: #f2e394 !important; */
-  background-color: #B4BF5E !important;
+  /* background-color: #b4bf5e !important; */
+  background-color: #1a1948 !important;
 }
 
-/* .logo-nav {
-  z-index: 99;
+.home-heading {
   position: absolute;
-} */
+  z-index: 99;
+  left: 474px;
+}
+.home-text {
+  position: absolute;
+  z-index: 99;
+  top: 73px;
+  right: 387px;
+}
 
 .button {
   /* background-color: #588c7e;
   border: #588c7e; */
-  background-color: #485922 ;
-  border: #485922;
-
+  /* background-color: #485922;
+  border: #485922;   */
+  background-color: #89c5cc;
+  border: #89c5cc;
 }
 
 .button:hover {
   background-color: #34495e;
   border: #34495e;
+}
+
+.home-button-all {
+  position: absolute;
+  z-index: 99;
+  top: 270px;
+  left: 659px;
+  padding: 10px 20px;
+  font-size: 20px;
+  /* background-color: #34495e;
+  border: #34495e; */
+  background-color: #D84034;
+  border: #D84034;
+}
+
+.home-button-new {
+  position: absolute;
+  z-index: 99;
+  top: 361px;
+  left: 632px;
+  padding: 10px 20px;
+  font-size: 20px;
+  /* background-color: #34495e;
+  border: #34495e; */
+  background-color: #D84034;
+  border: #D84034;
 }
