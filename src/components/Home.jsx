@@ -4,12 +4,17 @@ import imgD from '../img/imgD.png';
 import AllTrips from './AllTrips';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function Home() {
+
+	const { currentUser } = useContext(UserContext);
+
 	return (
 		<>
 			<div className='container homePage'>
-				<h1 className='home-heading'>Welcome Username</h1>
+				<h1 className='home-heading'>Welcome {currentUser.firstName}</h1>
 				<p className='home-text'>
 					There are many variations of passages of Lorem Ipsum available,
 					<br />

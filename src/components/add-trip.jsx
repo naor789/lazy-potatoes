@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { Form, Button, Variant, Alert } from 'react-bootstrap';
 import newTrip from '../axios-routes';
 import axios from 'axios';
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const AddTrip = () => {
+
+	const { currentUser } = useContext(UserContext);
+
 	const baseURL = 'http://localhost:5000';
 
 	const [time, setTime] = useState();
@@ -17,7 +22,7 @@ const AddTrip = () => {
 
 		const addTrip = {
 			//we need to add the username to the trip card
-
+			name: currentUser.firstName,
 			area: area,
 			time: time,
 			date: date,
