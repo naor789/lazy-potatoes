@@ -6,8 +6,8 @@ import TripCard from './TripCard'
 import React from 'react'
 
 
-
 export default function AllTrips() {
+
 
   const [allTrips, setAllTrips] = useState([])
     useEffect(() => {

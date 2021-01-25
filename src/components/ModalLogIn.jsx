@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { Modal, Button, Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 
 export default function ModalLogIn() {
+
+    const { setCurrentUser } = useContext(UserContext);
+
     const [modalLogIn, setModalLogIn] = useState(false)
     const [password, setPassword] = useState();
     const [email, setEmail] = useState();
@@ -33,8 +38,12 @@ export default function ModalLogIn() {
         if (logIn.status === 200) {
             localStorage.setItem('token', response.data);
         }
+        console.log('login', logIn);
         setModalLogIn(false);
-        history.push('/')
+        history.push('/');
+
+        setCurrentUser(logIn.data);
+        localStorage.setItem('user', JSON.stringify(logIn.data));
         // const reload = window.location.reload()
     }
 
