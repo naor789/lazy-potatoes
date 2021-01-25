@@ -48,41 +48,54 @@ export default function ModalLogIn() {
     }
 
     return (
-        <>
-            <Button
-                className="button btn btn-secondary my-2 my-sm-0 mx-3"
+      <>
+        <Button
+          className="buttons-login-signup button btn btn-secondary my-2 my-sm-0 mx-3"
+          type="button"
+          onClick={openModalLogIn}
+        >
+          {" "}
+          Log In{" "}
+        </Button>
 
-                type="button"
-                onClick={openModalLogIn}
-            > Log In </Button>
-
-            <Modal show={modalLogIn} onHide={handleClose}>
-
-                <Modal.Header>
-
-                    <Modal.Title>Log In</Modal.Title>
-                    <Button variant="light" onClick={handleClose} type="button">x</Button>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" value={email} required
-                                onChange={(event) => setEmail(event.target.value)} />
-
-                        </Form.Group>
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" value={password} required
-                                onChange={(event) => setPassword(event.target.value)} />
-                        </Form.Group>
-                        <Button onClick={handleSubmit} className="button w-100" type="submit">
-                            Log In </Button>
-                    </Form>
-
-                </Modal.Body>
-            </Modal>
-        </>
+        <Modal show={modalLogIn} onHide={handleClose}>
+          <Modal.Header>
+            <Modal.Title>Log In</Modal.Title>
+            <Button variant="light" onClick={handleClose} type="button">
+              x
+            </Button>
+          </Modal.Header>
+          <Modal.Body>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  required
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={password}
+                  required
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+              </Form.Group>
+              <Button
+                onClick={handleSubmit}
+                className="button w-100"
+                type="submit"
+              >
+                Log In{" "}
+              </Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
+      </>
     );
 
 }
