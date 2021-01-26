@@ -8,7 +8,7 @@ body {
   justify-content: center;
 }
 
-.imgA {
+/* .imgA {
   margin-top: 14px;
   margin-left: -28px;
   position: absolute;
@@ -17,7 +17,7 @@ body {
   margin-top: 14px;
   margin-left: 360px;
   position: absolute;
-}
+} */
 
 .request {
   border: 1px solid black;
