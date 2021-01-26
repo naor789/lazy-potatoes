@@ -10,6 +10,9 @@ import AllTrips from './components/AllTrips'
 import { UserContext } from './contexts/UserContext'
 import Footer from './components/Footer'
 
+export const baseURL = "http://localhost:5000";
+ 
+
 function App() {
 
   const [currentUser, setCurrentUser] = useState('')
