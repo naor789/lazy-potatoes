@@ -7,20 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 export default function TripCard(props) {
   const [modalShow, setModalShow] = React.useState(false)
 
-  const { id, area, time, store, quantity, name, requests } = props.trip
-
-  const {
-    requesterUser,
-    accepted,
-    reqDropOff,
-    reqItem1,
-    reqItem2,
-    reqItem3,
-    requestId
-  } = props.trip.requests
-
-  console.log(props.trip)
-  console.log(props.trip.requests)
+  const { id, area, time, store, quantity, name, requests, date } = props.trip
 
   return (
     <Card className='m-3 tripCard' style={{ width: '18rem' }} key={id}>
@@ -31,7 +18,7 @@ export default function TripCard(props) {
           Store: <b>{store}</b>
         </Card.Text>
         <Card.Text>
-          Time: <b>{time}</b>
+          Time: <b>{time}, {date} </b> 
         </Card.Text>
         <Card.Text>
           Able to carry: <b>{quantity}</b>
