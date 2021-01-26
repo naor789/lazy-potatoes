@@ -1,6 +1,6 @@
 import React from "react";
-import imgA from "../img/imgA.png";
-import imgD from "../img/imgD.png";
+// import imgA from "../img/imgA.png";
+// import imgD from "../img/imgD.png";
 import AllTrips from "./AllTrips";
 import { Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -12,13 +12,8 @@ export default function Home() {
 //   const url = "http://localhost:3000/";
   
   return (
-    <div className="container homePage">
-      <div
-        style={{
-          backgroundImage: `url(${imgA})`,
-          zIndex: "99",
-        }}
-      ></div>
+    <div className="container homePage"
+      >
 
       <h1 className="home-heading">Welcome {currentUser.firstName}</h1>
       <p className="home-text">

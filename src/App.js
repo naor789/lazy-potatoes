@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import { Nav, Navbar, Image } from 'react-bootstrap'
+import { Nav, Navbar, Image, Container } from 'react-bootstrap'
 import Home from './components/Home'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import ModalLogIn from './components/ModalLogIn'
@@ -32,7 +32,7 @@ function App() {
 	value={value}
 	>
       <Router>
-        <div className=' container-fluid w-100  '>
+        <div className=' container-fluid w-100 '>
           <div className='row p-5'>
             <Navbar
               bg='dark'
@@ -44,21 +44,23 @@ function App() {
                 <Link className=' nav' to='/'>
                   Home
                 </Link>
+                <Link className=' nav' to='/alltrips'>
+                  All Trips
+                </Link>
                 <form className='form-inline my-2 my-lg-0 float-end'>
                   <ModalLogIn />
                   <ModalSignUp />
                 </form>
               </Nav>
             </Navbar>
+          </div>
             <Footer />
 
-          </div>
 
           <Switch>
             <Route exact path='/'>
-              <Home />
+              <Home/>
             </Route>
-            <Route path='/profilesetting'></Route>
             <Route path='/add-trip'>
               <AddTrip />
             </Route>
