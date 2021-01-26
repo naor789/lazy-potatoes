@@ -1,14 +1,20 @@
 body {
+    background-image: url(./img/‏‏imgA.png), url(./img/‏‏imgD.png);
+    background-position: left center, right center;
+    object-fit: cover;
+    background-repeat: no-repeat;
   height: 100vh;
   font-family: "Lato", sans-serif;
 }
 
-.homePage {
-  position: relative;
-  justify-content: center;
-}
 
-.imgA {
+
+.homePage{
+  position: relative; 
+   /* justify-content: center; */
+
+}
+/* .imgA {
   margin-top: 14px;
   margin-left: -28px;
   position: absolute;
@@ -17,7 +23,7 @@ body {
   margin-top: 14px;
   margin-left: 360px;
   position: absolute;
-}
+} */
 
 .request {
   border: 1px solid black;
@@ -47,7 +53,7 @@ body {
   background-color: #1a1948 !important;
 }
 
-.home-heading {
+/* .home-heading {
   position: absolute;
   z-index: 99;
   left: 474px;
@@ -57,7 +63,7 @@ body {
   z-index: 99;
   top: 73px;
   right: 387px;
-}
+} */
 
 .buttons-login-signup {
   /* background-color: #588c7e;
@@ -109,15 +115,14 @@ body {
   border: #bb2a1f;
 }
 
-.footer{
+.footer {
   margin-top: 1rem;
   padding: 1rem;
   /* background-color: rgb(235, 195, 64); */
-  background-color:  #E4E4E4;
-    opacity: 0.4;
+  background-color: #e4e4e4;
+  opacity: 0.4;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
 }
-

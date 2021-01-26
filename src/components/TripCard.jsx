@@ -6,7 +6,7 @@ import "./tripCard.css";
 export default function TripCard(props) {
   const [modalShow, setModalShow] = React.useState(false);
 
-  const { id, area, time, store, quantity, name } = props.trip;
+  const { id, area, time, date, store, quantity, name } = props.trip;
 
   console.log(props.trip);
   return (
@@ -18,7 +18,7 @@ export default function TripCard(props) {
           Store: <b>{store}</b>
         </Card.Text>
         <Card.Text>
-          Time: <b>{time}</b>
+          Time: <b>{time}, {date} </b> 
         </Card.Text>
         <Card.Text>
           Able to carry: <b>{quantity}</b>
