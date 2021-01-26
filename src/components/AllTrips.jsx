@@ -11,7 +11,6 @@ export default function AllTrips() {
     const showAllTrips = async () => {
       const res = await axios.get(`${baseURL}/api/alltrips`);
       setAllTrips(res.data);
-      console.log(allTrips);
     };
     showAllTrips();
   }, []);

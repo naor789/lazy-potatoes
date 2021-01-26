@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, createRef } from 'react'
 import './App.css'
 import { Nav, Navbar, Image } from 'react-bootstrap'
 import Home from './components/Home'
@@ -9,10 +9,15 @@ import AddTrip from './components/add-trip'
 import AllTrips from './components/AllTrips'
 import { UserContext } from './contexts/UserContext'
 import Footer from './components/Footer'
+import axios from "axios";
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState('')
+
+  const wrapper = createRef();
+
+  const baseURL = "http://localhost:5000";
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem('user')
@@ -20,16 +25,18 @@ function App() {
       const foundUser = JSON.parse(loggedInUser)
       setCurrentUser(foundUser)
     }
+    const node = wrapper.current;
   }, [])
 
   const value = {
     currentUser,
     setCurrentUser,
+    baseURL,
   }
 
   return (
     <UserContext.Provider
-	value={value}
+  value={value}
 	>
       <Router>
         <div className=' container-fluid w-100  '>
