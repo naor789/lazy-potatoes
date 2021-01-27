@@ -1,0 +1,13 @@
+.buttons {
+  background-color: #d84034;
+  border: #d84034;
+}
+
+.buttons:hover {
+  background-color: #bb2a1f;
+  border: #bb2a1f;
+}
+
+.tripCard{
+    /* border: #d84034 ; */
+}
