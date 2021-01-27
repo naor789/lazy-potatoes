@@ -38,7 +38,7 @@ export default function MyTrips() {
 				{myTrips && (
 					<Row className='m-3'>
 						{myTrips.map(trip => (
-							<TripCard key={uuidv4()} trip={trip} />
+							<TripCard key={trip._id} trip={trip} />
 						))}
 					</Row>
 				)}
