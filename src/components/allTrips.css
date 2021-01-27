@@ -1,0 +1,16 @@
+h1 {
+	text-align: center;
+}
+.searchBtn {
+	padding: 5px 1rem;
+	font-size: 20px;
+	background-color: #d84034;
+	border: #d84034;
+}
+
+.searchBox {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+}

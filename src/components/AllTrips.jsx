@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Row, Form, Button } from 'react-bootstrap';
+import { Row, Form, Button, Col } from 'react-bootstrap';
 import TripCard from './TripCard';
 import React from 'react';
 import { areas } from './add-trip';
 import { baseURL } from '../App';
+import './allTrips.css';
 
 export default function AllTrips() {
 	const [allTrips, setAllTrips] = useState([]);
@@ -25,9 +26,10 @@ export default function AllTrips() {
 			searchArea: searchArea,
 		};
 		const res = await axios.get(
-			`http://localhost:5000/api/trips/search?area=${searchArea}`
+			`${baseURL}api/trips/search?area=${searchArea}`
 		);
 		setAreaTrips(res.data);
+		console.log(newSearch);
 	};
 
 	return (
@@ -36,27 +38,34 @@ export default function AllTrips() {
 				<h1>Available Trips</h1>
 				<Form>
 					<Form.Group controlId='Type'>
-						<Form.Label inline className='mt-1'>
-							Select your area
-						</Form.Label>
-						<Form.Control
-							style={{ width: '200px' }}
-							as='select'
-							defaultValue='Glilot'
-							value={searchArea}
-							required
-							//   name="type"
-							onChange={e => setSearchArea(e.target.value)}>
-							{areas.map(area => (
-								<option key={area.id} area={{ area }}>
-									{area}
-								</option>
-							))}
-							<Button
-								onClick={handleSearch}
-								// className="button w-100"
-								type='submit'></Button>
-						</Form.Control>
+						<Row className='justify-content-md-center'>
+							<Col xs lg='2'></Col>
+							<Col md='auto'>
+								<Form.Control
+									aria-label='Select your area'
+									style={{ width: '200px' }}
+									as='select'
+									defaultValue='Choose your area'
+									value={searchArea}
+									required
+									onChange={e => setSearchArea(e.target.value)}>
+									{areas.map(area => (
+										<option key={area.id} area={{ area }}>
+											{area}
+										</option>
+									))}
+								</Form.Control>
+							</Col>
+							<Col md='auto'>
+								<Button
+									className='searchBtn'
+									onClick={handleSearch}
+									type='submit'>
+									Search
+								</Button>
+							</Col>
+							<Col xs lg='2'></Col>
+						</Row>
 					</Form.Group>
 				</Form>
 				{allTrips && (

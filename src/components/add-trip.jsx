@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { Form, Button, Variant, Alert } from 'react-bootstrap';
+import { useState, useContext } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import './add-trip.css';
 import { baseURL } from '../App';
 export const areas = [
+	'Choose your area',
 	'Glilot',
 	'Tzuk Aviv',
 	'Ezor Sde Dov',
