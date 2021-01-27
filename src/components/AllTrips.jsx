@@ -1,26 +1,15 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Row, Form, Button } from "react-bootstrap";
-import TripCard from "./TripCard";
-import React from "react";
-import { areas } from "./add-trip"
-import { baseURL } from "../App";
-
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Row, Form, Button } from 'react-bootstrap';
+import TripCard from './TripCard';
+import React from 'react';
+import { areas } from './add-trip';
+import { baseURL } from '../App';
 
 export default function AllTrips() {
-  const [allTrips, setAllTrips] = useState([]);
-  const [areaTrips, setAreaTrips] = useState([])
-    const [searchArea, setSearchArea] = useState();
-
-
-  useEffect(() => {
-    const showAllTrips = async () => {
-      const res = await axios.get(`${baseURL}/api/alltrips`);
-      setAllTrips(res.data);
-      console.log(allTrips);
-    };
-    showAllTrips();
-  }, []);
+	const [allTrips, setAllTrips] = useState([]);
+	const [areaTrips, setAreaTrips] = useState([]);
+	const [searchArea, setSearchArea] = useState();
 
       const handleSearch = async (event) => {
         event.preventDefault();
@@ -33,6 +22,24 @@ export default function AllTrips() {
         setAreaTrips(res.data);
       };
 
+  useEffect(() => {
+		const showAllTrips = async () => {
+			const res = await axios.get(`${baseURL}/api/alltrips`);
+			setAllTrips(res.data);
+		};
+		showAllTrips();
+	}, [allTrips]);
+
+	const handleSearch = async event => {
+		event.preventDefault();
+		const newSearch = {
+			searchArea: searchArea,
+		};
+		const res = await axios.get(
+			`http://localhost:5000/api/trips/search?area=${searchArea}`
+		);
+		setAreaTrips(res.data);
+	};
 
   return (
     <>
