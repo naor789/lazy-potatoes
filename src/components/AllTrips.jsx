@@ -12,7 +12,7 @@ export default function AllTrips() {
 	const [areaTrips, setAreaTrips] = useState([]);
 	const [searchArea, setSearchArea] = useState();
 
-	const handleSearch = async event => {
+	const handleSearch = async (event) => {
 		event.preventDefault();
 		const newSearch = {
 			searchArea: searchArea,
@@ -56,12 +56,12 @@ export default function AllTrips() {
 			</Form>
 			<div className='container mb-5 '>
 				<h1>All Trips</h1>
-				{allTrips && (
+				{/* {allTrips && (
 					<Row className='m-3'>
 						{allTrips.map(trip => (
 							<TripCard key={trip.id} trip={trip} />
 						))}
-					</Row>
+					</Row> */}
 				)}
 				{searchArea && (
 					<Row className='m-3'>
