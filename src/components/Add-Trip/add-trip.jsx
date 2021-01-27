@@ -1,9 +1,8 @@
 import { useState, useContext } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import './add-trip.css';
-import { baseURL } from '../App';
 export const areas = [
 	'Choose your area',
 	'Glilot',
@@ -79,7 +78,9 @@ export const areas = [
 ];
 
 const AddTrip = () => {
-	const { currentUser } = useContext(UserContext);
+	
+	const { currentUser, baseURL } = useContext(UserContext);
+	
 	const [time, setTime] = useState();
 	const [date, setDate] = useState();
 	const [store, setStore] = useState();

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Row, Form, Button } from 'react-bootstrap';
-import TripCard from './TripCard';
+import TripCard from '../TripCard/TripCard';
 import React from 'react';
-import { areas } from './add-trip';
-import { baseURL } from '../App';
+import { areas } from '../Add-Trip/add-trip';
+import { baseURL } from '../../App';
 import './allTrips.css';
 
 export default function AllTrips() {
