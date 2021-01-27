@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Row, Form, Button, Col } from 'react-bootstrap';
+import { Row, Form, Button } from 'react-bootstrap';
 import TripCard from './TripCard';
 import React from 'react';
 import { areas } from './add-trip';
@@ -12,6 +12,17 @@ export default function AllTrips() {
 	const [areaTrips, setAreaTrips] = useState([]);
 	const [searchArea, setSearchArea] = useState();
 
+	const handleSearch = async event => {
+		event.preventDefault();
+		const newSearch = {
+			searchArea: searchArea,
+		};
+		const res = await axios.get(
+			`http://localhost:5000/api/search?area=${searchArea}`
+		);
+		setAreaTrips(res.data);
+	};
+
 	useEffect(() => {
 		const showAllTrips = async () => {
 			const res = await axios.get(`${baseURL}/api/alltrips`);
@@ -20,57 +31,41 @@ export default function AllTrips() {
 		showAllTrips();
 	}, [allTrips]);
 
-	const handleSearch = async event => {
-		event.preventDefault();
-		const newSearch = {
-			searchArea: searchArea,
-		};
-		const res = await axios.get(
-			`${baseURL}api/trips/search?area=${searchArea}`
-		);
-		setAreaTrips(res.data);
-		console.log(newSearch);
-	};
-
 	return (
 		<>
+			<Form>
+				<Form.Group controlId='Type'>
+					<Form.Label className='mt-1'>Search for Area</Form.Label>
+					<Form.Control
+						as='select'
+						defaultValue='Glilot'
+						value={searchArea}
+						required
+						//   name="type"
+						onChange={e => setSearchArea(e.target.value)}>
+						{areas.map(area => (
+							<option key={area.id} area={{ area }}>
+								{area}
+							</option>
+						))}
+					</Form.Control>
+					<Button onClick={handleSearch} className='button w-100' type='submit'>
+						Search
+					</Button>
+				</Form.Group>
+			</Form>
 			<div className='container mb-5 '>
-				<h1>Available Trips</h1>
-				<Form>
-					<Form.Group controlId='Type'>
-						<Row className='justify-content-md-center'>
-							<Col xs lg='2'></Col>
-							<Col md='auto'>
-								<Form.Control
-									aria-label='Select your area'
-									style={{ width: '200px' }}
-									as='select'
-									defaultValue='Choose your area'
-									value={searchArea}
-									required
-									onChange={e => setSearchArea(e.target.value)}>
-									{areas.map(area => (
-										<option key={area.id} area={{ area }}>
-											{area}
-										</option>
-									))}
-								</Form.Control>
-							</Col>
-							<Col md='auto'>
-								<Button
-									className='searchBtn'
-									onClick={handleSearch}
-									type='submit'>
-									Search
-								</Button>
-							</Col>
-							<Col xs lg='2'></Col>
-						</Row>
-					</Form.Group>
-				</Form>
+				<h1>All Trips</h1>
 				{allTrips && (
 					<Row className='m-3'>
 						{allTrips.map(trip => (
+							<TripCard key={trip.id} trip={trip} />
+						))}
+					</Row>
+				)}
+				{searchArea && (
+					<Row className='m-3'>
+						{searchArea.map(trip => (
 							<TripCard key={trip.id} trip={trip} />
 						))}
 					</Row>
