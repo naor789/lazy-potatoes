@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, ListGroup } from 'react-bootstrap';
-import TripCardModal from './TripCardModal';
+import TripCardModal from '../TripCardModal/TripCardModal';
 import './tripCard.css';
 
 export default function TripCard(props) {
