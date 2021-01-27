@@ -11,7 +11,18 @@ export default function AllTrips() {
 	const [areaTrips, setAreaTrips] = useState([]);
 	const [searchArea, setSearchArea] = useState();
 
-	useEffect(() => {
+      const handleSearch = async (event) => {
+        event.preventDefault();
+        const newSearch = {
+          searchArea: searchArea,
+        };
+        const res = await axios.get(
+          `http://localhost:5000/api/search?area=${searchArea}`
+        );
+        setAreaTrips(res.data);
+      };
+
+  useEffect(() => {
 		const showAllTrips = async () => {
 			const res = await axios.get(`${baseURL}/api/alltrips`);
 			setAllTrips(res.data);
@@ -30,43 +41,47 @@ export default function AllTrips() {
 		setAreaTrips(res.data);
 	};
 
-	return (
-		<>
-			<div className='container mb-5 '>
-				<h1>Available Trips</h1>
-				<Form>
-					<Form.Group controlId='Type'>
-						<Form.Label inline className='mt-1'>
-							Select your area
-						</Form.Label>
-						<Form.Control
-							style={{ width: '200px' }}
-							as='select'
-							defaultValue='Glilot'
-							value={searchArea}
-							required
-							//   name="type"
-							onChange={e => setSearchArea(e.target.value)}>
-							{areas.map(area => (
-								<option key={area.id} area={{ area }}>
-									{area}
-								</option>
-							))}
-							<Button
-								onClick={handleSearch}
-								// className="button w-100"
-								type='submit'></Button>
-						</Form.Control>
-					</Form.Group>
-				</Form>
-				{allTrips && (
-					<Row className='m-3'>
-						{allTrips.map(trip => (
-							<TripCard key={trip.id} trip={trip} />
-						))}
-					</Row>
-				)}
-			</div>
-		</>
-	);
+  return (
+    <>
+      <Form>
+        <Form.Group controlId="Type">
+          <Form.Label className="mt-1">Search for Area</Form.Label>
+          <Form.Control
+            as="select"
+            defaultValue="Glilot"
+            value={searchArea}
+            required
+            //   name="type"
+            onChange={(e) => setSearchArea(e.target.value)}
+          >
+            {areas.map((area) => (
+              <option key={area.id} area={{ area }}>
+                {area}
+              </option>
+            ))}
+          </Form.Control>
+          <Button onClick={handleSearch} className="button w-100" type="submit">
+            Search
+          </Button>
+        </Form.Group>
+      </Form>
+      <div className="container mb-5 ">
+        <h1>All Trips</h1>
+        {allTrips && (
+          <Row className="m-3">
+            {allTrips.map((trip) => (
+              <TripCard key={trip.id} trip={trip} />
+            ))}
+          </Row>
+        )}
+        {searchArea && (
+          <Row className="m-3">
+            {searchArea.map((trip) => (
+              <TripCard key={trip.id} trip={trip} />
+            ))}
+          </Row>
+        )}
+      </div>
+    </>
+  );
 }
