@@ -5,8 +5,8 @@ import Home from './components/Home';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import ModalLogIn from './components/ModalLogIn';
 import ModalSignUp from './components/ModalSignUp';
-import AddTrip from './components/add-trip';
-import AllTrips from './components/AllTrips';
+import AddTrip from './components/Add-Trip/add-trip';
+import AllTrips from './components/AllTrips/AllTrips';
 import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer';
 
