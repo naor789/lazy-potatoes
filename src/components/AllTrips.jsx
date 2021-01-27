@@ -12,16 +12,16 @@
 // 	const [areaTrips, setAreaTrips] = useState([]);
 // 	const [searchArea, setSearchArea] = useState();
 
-// 	const handleSearch = async (event) => {
-// 		event.preventDefault();
-// 		const newSearch = {
-// 			searchArea: searchArea,
-// 		};
-// 		const res = await axios.get(
-// 			`http://localhost:5000/api/search?area=${searchArea}`
-// 		);
-// 		setAreaTrips(res.data);
-// 	};
+	// const handleSearch = async (event) => {
+	// 	event.preventDefault();
+	// 	const newSearch = {
+	// 		searchArea: searchArea,
+	// 	};
+	// 	const res = await axios.get(
+	// 		`http://localhost:5000/api/search?area=${searchArea}`
+	// 	);
+	// 	setAreaTrips(res.data);
+	// };
 
 // 	useEffect(() => {
 // 		const showAllTrips = async () => {

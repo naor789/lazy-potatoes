@@ -1,6 +1,5 @@
 import React from "react";
-// import imgA from "../img/imgA.png";
-// import imgD from "../img/imgD.png";
+// import imgA from "C:Users\naorlazy-potatoessrccomponentsimg‏‏imgA.png";
 import AllTrips from "../components/AllTrips/AllTrips";
 import { Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -37,7 +36,9 @@ export default function Home() {
             every time you bring something to a potatoe, you earn points.
           </p>
         </Col>
-        <Col md="4"></Col>
+        <Col md="4">
+          {/* <img src={imgA} alt="people" width="90%" /> */}
+        </Col>
       </Row>
       <Row>
         <Col md="4"></Col>
@@ -49,7 +50,9 @@ export default function Home() {
             <Button className="home-button m-4"> Add a new trip </Button>
           </Link>
         </Col>
-        <Col md="4"></Col>
+        <Col md="4">
+          {/* <img src={imgD} alt="people" width="90%" /> */}
+        </Col>
       </Row>
     </div>
   );
