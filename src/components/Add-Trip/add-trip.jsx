@@ -78,14 +78,14 @@ export const areas = [
 ];
 
 const AddTrip = () => {
-	
 	const { currentUser, baseURL } = useContext(UserContext);
-	
+
 	const [time, setTime] = useState();
 	const [date, setDate] = useState();
 	const [store, setStore] = useState();
 	const [quantity, setQuantity] = useState();
 	const [area, setArea] = useState();
+	const [message, setMessage] = useState();
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -100,10 +100,12 @@ const AddTrip = () => {
 			quantity: quantity,
 		};
 		const response = await axios.post(`${baseURL}/api/newtrip`, addTrip);
+		setMessage(`Thank ${currentUser.firstName}! Your new trip was added.`);
 	};
 
 	return (
 		<div className='container mb-5 w-50'>
+			<p>{message}</p>
 			<Form onSubmit={handleSubmit}>
 				<Form.Group controlId='Type'>
 					<Form.Label className='mt-1'>Area</Form.Label>

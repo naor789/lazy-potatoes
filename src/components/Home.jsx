@@ -33,9 +33,11 @@ export default function Home() {
 				<Col md='4'>
 					<h4>How does it work? </h4>
 					<p>
+						<b>First, you need to log-in or sign up to participate</b>
 						When you sign up, you are awarded 20 points. <br />
-						Every time you ask for something, you give that person point, and
-						every time you bring something to a potatoe, you earn points.
+						Every time you ask for something, you give that person point. <br />
+						Every time you bring something to a potatoe, you earn points. <br />
+						Simple enough, isn't it?
 					</p>
 				</Col>
 				<Col md='4'>
@@ -49,7 +51,9 @@ export default function Home() {
 						<Button className='home-button m-4'> All trips </Button>
 					</Link>
 					<Link to='/add-trip'>
-						<Button className='home-button m-4'> Add a new trip </Button>
+						<Button disabled={!currentUser} className='home-button m-4'>
+							Add a new trip
+						</Button>
 					</Link>
 				</Col>
 				<Col md='4'></Col>
