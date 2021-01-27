@@ -7,6 +7,7 @@ import { baseURL } from '../../App';
 import './allTrips.css';
 
 export default function AllTrips() {
+	
 	const [allTrips, setAllTrips] = useState([]);
 	const [areaTrips, setAreaTrips] = useState([]);
 	const [searchArea, setSearchArea] = useState();

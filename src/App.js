@@ -9,6 +9,7 @@ import AddTrip from './components/Add-Trip/add-trip';
 import AllTrips from './components/AllTrips/AllTrips';
 import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer';
+import MyTrips from './components/My-Trips/MyTrips';
 
 export const baseURL = 'http://localhost:5000';
 
@@ -42,10 +43,13 @@ function App() {
 							className='navbar-expand-lg navbar navbar-dark bg-primary shadow-lg'
 							fixed='top'>
 							<Nav className='collapse navbar-collapse d-flex justify-content-between'>
-								<Link className=' nav' to='/'>
+								<Link className='nav' to='/'>
 									Home
 								</Link>
-								<Link className=' nav' to='/alltrips'>
+								<Link className='nav' to='/mytrips'>
+									My Trips
+								</Link>
+								<Link className='nav' to='/alltrips'>
 									All Trips
 								</Link>
 								<form className='form-inline my-2 my-lg-0 float-end'>
@@ -65,6 +69,9 @@ function App() {
 							</Route>
 							<Route path='/alltrips'>
 								<AllTrips />
+							</Route>
+							<Route path='/mytrips'>
+								<MyTrips />
 							</Route>
 						</Switch>
 					</Container>
