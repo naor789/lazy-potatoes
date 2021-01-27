@@ -91,6 +91,7 @@ const AddTrip = () => {
 		e.preventDefault();
 		const addTrip = {
 			//we need to add the username to the trip card
+			email: currentUser.email,
 			name: currentUser.firstName,
 			area: area,
 			time: time,
