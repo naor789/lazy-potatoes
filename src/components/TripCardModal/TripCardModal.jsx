@@ -47,13 +47,13 @@ export default function TripCardModal(props) {
 			reqItem2,
 			reqItem3,
 			reqDropOff,
-			accepted: false,
+			accepted: null
 		};
 		props.onHide();
 		sendRequest(requestObject);
 	}
 
-	const sendRequest = async requestObject => {
+	const sendRequest = async (requestObject) => {
 		const res = await axios.put(`${baseURL}/api/addRequest`, requestObject);
 	};
 
@@ -98,7 +98,7 @@ export default function TripCardModal(props) {
 						<b> {name} </b>can carry<b> {quantity} </b>items
 					</Col>
 				</Row>
-				{requests.length > 0 && (
+				{/* {requests.length > 0 && (
 					<Row>
 						<ListGroup variant='flush'>
 							{requests.map(request => (
@@ -119,7 +119,7 @@ export default function TripCardModal(props) {
 							))}
 						</ListGroup>
 					</Row>
-				)}
+				)} */}
 				<Form>
 					<Form.Group id='request'>
 						<Form.Label>What do you need?</Form.Label>
