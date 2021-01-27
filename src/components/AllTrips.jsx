@@ -28,7 +28,7 @@ export default function AllTrips() {
           searchArea: searchArea,
         };
         const res = await axios.get(
-          `http://localhost:5000/api/trips/search?area=${searchArea}`
+          `http://localhost:5000/api/search?area=${searchArea}`
         );
         setAreaTrips(res.data);
       };
@@ -38,7 +38,7 @@ export default function AllTrips() {
     <>
       <Form>
         <Form.Group controlId="Type">
-          <Form.Label className="mt-1">Area</Form.Label>
+          <Form.Label className="mt-1">Search for Area</Form.Label>
           <Form.Control
             as="select"
             defaultValue="Glilot"
@@ -52,12 +52,10 @@ export default function AllTrips() {
                 {area}
               </option>
             ))}
-            <Button
-              onClick={handleSearch}
-              // className="button w-100"
-              type="submit"
-            ></Button>
           </Form.Control>
+          <Button onClick={handleSearch} className="button w-100" type="submit">
+            Search
+          </Button>
         </Form.Group>
       </Form>
       <div className="container mb-5 ">
@@ -65,6 +63,13 @@ export default function AllTrips() {
         {allTrips && (
           <Row className="m-3">
             {allTrips.map((trip) => (
+              <TripCard key={trip.id} trip={trip} />
+            ))}
+          </Row>
+        )}
+        {searchArea && (
+          <Row className="m-3">
+            {searchArea.map((trip) => (
               <TripCard key={trip.id} trip={trip} />
             ))}
           </Row>
