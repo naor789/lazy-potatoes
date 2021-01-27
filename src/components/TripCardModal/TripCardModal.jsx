@@ -12,10 +12,11 @@ import './tripCardModal.css';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
+import { useHistory } from "react-router-dom";
+
 
 export default function TripCardModal(props) {
-
-
+	const history = useHistory();
 	const { currentUser, baseURL } = useContext(UserContext);
 	const { area, date, time, store, quantity, name, _id, requests } = props.trip;
 
@@ -53,6 +54,12 @@ export default function TripCardModal(props) {
 		sendRequest(requestObject);
 	}
 
+	// const handleClose = () => {
+	// history.push("/alltrips");
+
+	// }
+
+
 	const sendRequest = async (requestObject) => {
 		const res = await axios.put(`${baseURL}/api/addRequest`, requestObject);
 	};
@@ -74,8 +81,10 @@ export default function TripCardModal(props) {
 					order to send a request...
 				</p>
 			</Alert>
-			<Modal.Header closeButton>
-				<Button variant='light' type='button'>
+			<Modal.Header >
+				<Button variant='light' type='button'
+					// onClick={handleClose}
+				>
 					x
 				</Button>
 
@@ -86,7 +95,7 @@ export default function TripCardModal(props) {
 			<Modal.Body>
 				<Row>
 					<Col>
-						Store: <b>{store.toUpperCase()}</b>
+						Store: <b>{store}</b>
 					</Col>
 					<Col>
 						Time:

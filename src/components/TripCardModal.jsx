@@ -7,14 +7,10 @@ import { v4 as uuidv4 } from 'uuid'
 import { UserContext } from '../contexts/UserContext'
 
 export default function TripCardModal(props) {
-
   const { currentUser, baseURL, axios } = useContext(UserContext)
-
   //get the trip doc from the db, and axios.put to add the request
   const { area, time, store, quantity, name, _id } = props.trip
-
   const [requestList, setRequestList] = useState('')
-
   const [reqItem1, setReqItem1] = useState('')
   const [reqItem2, setReqItem2] = useState('')
   const [reqItem3, setReqItem3] = useState('')
