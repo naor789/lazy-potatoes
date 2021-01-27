@@ -46,88 +46,86 @@ export default function ModalSignUp() {
 	};
 
 	return (
-    <>
-      <Button
-        className="buttons-login-signup button btn btn-secondary my-2 my-sm-0 mr-4"
-        type="button"
-        onClick={openModalSignUp}
-      >
-        Sign Up{" "}
-      </Button>
+		<>
+			<Button
+				className='buttons-login-signup button btn btn-secondary my-2 my-sm-0 mr-4'
+				type='button'
+				onClick={openModalSignUp}>
+				Sign Up{' '}
+			</Button>
 
-      <Modal show={modalSignUp} onHide={handleClose}>
-        <Modal.Header>
-          <Modal.Title>Sign Up</Modal.Title>
-          <Button variant="light" onClick={handleClose} type="button">
-            x
-          </Button>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                required
-                onChange={(event) => setEmail(event.target.value)}
-              />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                value={password}
-                required
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </Form.Group>
-            <Form.Group id="confirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                value={confirmPassword}
-                required
-                onChange={(event) => setConfirmPassword(event.target.value)}
-              />
-            </Form.Group>
-            <Form.Group id="firsName">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                type="email"
-                value={firstName}
-                required
-                onChange={(event) => setFirstName(event.target.value)}
-              />
-            </Form.Group>
-            <Form.Group id="lastName">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                type="email"
-                value={lastName}
-                required
-                onChange={(event) => setLastName(event.target.value)}
-              />
-            </Form.Group>
-            <Form.Group id="phoneNumber">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="email"
-                value={phoneNumber}
-                required
-                onChange={(event) => setPhoneNumber(event.target.value)}
-              />
-            </Form.Group>
-            <Button
-              onClick={handleSubmit}
-              className="button w-100"
-              type="submit"
-            >
-              Log In{" "}
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
-    </>
-  );
+			<Modal show={modalSignUp} onHide={handleClose}>
+				<Modal.Header>
+					<Modal.Title>Sign Up</Modal.Title>
+					<Button variant='light' onClick={handleClose} type='button'>
+						x
+					</Button>
+				</Modal.Header>
+				<Modal.Body>
+					<Form onSubmit={handleSubmit}>
+						<Form.Group id='email'>
+							<Form.Label>Email</Form.Label>
+							<Form.Control
+								type='email'
+								value={email}
+								required
+								onChange={event => setEmail(event.target.value)}
+							/>
+						</Form.Group>
+						<Form.Group id='password'>
+							<Form.Label>Password</Form.Label>
+							<Form.Control
+								type='password'
+								value={password}
+								required
+								onChange={event => setPassword(event.target.value)}
+							/>
+						</Form.Group>
+						<Form.Group id='confirmPassword'>
+							<Form.Label>Confirm Password</Form.Label>
+							<Form.Control
+								type='password'
+								value={confirmPassword}
+								required
+								onChange={event => setConfirmPassword(event.target.value)}
+							/>
+						</Form.Group>
+						<Form.Group id='firsName'>
+							<Form.Label>First Name</Form.Label>
+							<Form.Control
+								type='email'
+								value={firstName}
+								required
+								onChange={event => setFirstName(event.target.value)}
+							/>
+						</Form.Group>
+						<Form.Group id='lastName'>
+							<Form.Label>Last Name</Form.Label>
+							<Form.Control
+								type='email'
+								value={lastName}
+								required
+								onChange={event => setLastName(event.target.value)}
+							/>
+						</Form.Group>
+						<Form.Group id='phoneNumber'>
+							<Form.Label>Phone Number</Form.Label>
+							<Form.Control
+								type='email'
+								value={phoneNumber}
+								required
+								onChange={event => setPhoneNumber(event.target.value)}
+							/>
+						</Form.Group>
+						<Button
+							onClick={handleSubmit}
+							className='button w-100'
+							type='submit'>
+							Log In
+						</Button>
+					</Form>
+				</Modal.Body>
+			</Modal>
+		</>
+	);
 }

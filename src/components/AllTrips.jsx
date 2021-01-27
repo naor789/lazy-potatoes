@@ -62,7 +62,7 @@ export default function AllTrips() {
 							<TripCard key={trip.id} trip={trip} />
 						))}
 					</Row> */}
-				)}
+				{/* )} */}
 				{searchArea && (
 					<Row className='m-3'>
 						{searchArea.map(trip => (

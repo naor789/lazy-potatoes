@@ -10,10 +10,12 @@ import {
 } from 'react-bootstrap';
 import './tripCardModal.css';
 import { v4 as uuidv4 } from 'uuid';
-import { UserContext } from '../contexts/UserContext';
 import axios from 'axios';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function TripCardModal(props) {
+
+
 	const { currentUser, baseURL } = useContext(UserContext);
 	const { area, date, time, store, quantity, name, _id, requests } = props.trip;
 

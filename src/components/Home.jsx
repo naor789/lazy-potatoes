@@ -1,7 +1,7 @@
 import React from 'react';
 // import imgA from "../img/imgA.png";
 // import imgD from "../img/imgD.png";
-import AllTrips from './AllTrips';
+import AllTrips from '../components/AllTrips/AllTrips';
 import { Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
