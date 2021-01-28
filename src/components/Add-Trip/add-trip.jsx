@@ -98,14 +98,15 @@ const AddTrip = () => {
       date: date,
       store: store,
       quantity: quantity,
-    };
+	  };
+	  
     const response = await axios.post(`${baseURL}/api/newtrip`, addTrip);
     setMessage(`Thank ${currentUser.firstName}! Your new trip was added.`);
-    setTime();
-    setDate();
-    setStore("");
-    setQuantity(0);
-    setArea("");
+    // setTime(null);
+    // setDate(null);
+    // setStore("");
+    // setQuantity(null);
+    // setArea();
   };
 
   return (

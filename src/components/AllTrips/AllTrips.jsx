@@ -66,10 +66,10 @@ export default function AllTrips() {
               <Col xs lg="2"></Col>
               <Col md="auto">
                 <Form.Control
-                  aria-label="Select your area"
+                  aria-label="Choose your area"
                   style={{ width: "200px" }}
                   as="select"
-                  defaultValue="Choose your area"
+                //   defaultValue="choose area"
                   value={searchArea}
                   required
                   onChange={(e) => setSearchArea(e.target.value)}
