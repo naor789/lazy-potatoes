@@ -1,26 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
-import {
-	Button,
-	Form,
-	Row,
-	Col,
-	ListGroup,
-	Modal,
-	Alert,
-} from 'react-bootstrap';
+import React, { useState, useContext } from 'react';
+import { Button, Form, Row, Col, Modal, Alert } from 'react-bootstrap';
 import './tripCardModal.css';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
-import { useHistory } from "react-router-dom";
-
+import { useHistory } from 'react-router-dom';
 
 export default function TripCardModal(props) {
 	const history = useHistory();
 	const { currentUser, baseURL } = useContext(UserContext);
-	const { area, date, time, store, quantity, name, _id, requests } = props.trip;
-
-	// const [requestList, setRequestList] = useState('');
+	const { area, date, time, store, quantity, name, _id } = props.trip;
 
 	const [reqItem1, setReqItem1] = useState('');
 	const [reqItem2, setReqItem2] = useState('');
@@ -48,7 +37,7 @@ export default function TripCardModal(props) {
 			reqItem2,
 			reqItem3,
 			reqDropOff,
-			accepted: null
+			accepted: null,
 		};
 		props.onHide();
 		sendRequest(requestObject);
@@ -59,8 +48,7 @@ export default function TripCardModal(props) {
 
 	// }
 
-
-	const sendRequest = async (requestObject) => {
+	const sendRequest = async requestObject => {
 		const res = await axios.put(`${baseURL}/api/addRequest`, requestObject);
 	};
 
@@ -81,8 +69,10 @@ export default function TripCardModal(props) {
 					order to send a request...
 				</p>
 			</Alert>
-			<Modal.Header >
-				<Button variant='light' type='button'
+			<Modal.Header>
+				<Button
+					variant='light'
+					type='button'
 					// onClick={handleClose}
 				>
 					x
