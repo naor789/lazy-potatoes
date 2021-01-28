@@ -70,7 +70,7 @@ export default function AllTrips() {
 							<Col md='auto'>
 								<Button
 									className='searchBtn'
-									onClick={handleSearch}
+									// onClick={handleSearch}
 									type='submit'>
 									Search
 								</Button>

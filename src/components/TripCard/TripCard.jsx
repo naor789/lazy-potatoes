@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Card, ListGroup } from 'react-bootstrap'
 import TripCardModal from '../TripCardModal/TripCardModal'
 import './tripCard.css'
 import { UserContext } from '../../contexts/UserContext'
 import axios from 'axios'
-import { findAllByDisplayValue } from '@testing-library/react'
 
 export default function TripCard(props) {
+
   const { currentUser, baseURL } = useContext(UserContext)
 
   const [modalShow, setModalShow] = React.useState(false)

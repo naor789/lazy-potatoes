@@ -98,28 +98,6 @@ export default function TripCardModal(props) {
 						<b> {name} </b>can carry<b> {quantity} </b>items
 					</Col>
 				</Row>
-				{/* {requests.length > 0 && (
-					<Row>
-						<ListGroup variant='flush'>
-							{requests.map(request => (
-								<ListGroup.Item key={request.requestId}>
-									<h3>{request.requesterUser.firstName}'s request</h3>
-									<Row>
-										<Col>
-											Items requested: {request.reqItem1}, {request.reqItem2},
-											{request.reqItem3}
-										</Col>
-										<Col>Drop-off: {request.reqDropOff}</Col>
-										<Col>
-											{request.accepted && <p> Request has been accepted</p>}
-											{!request.accepted && <Button>Help this potato</Button>}
-										</Col>
-									</Row>
-								</ListGroup.Item>
-							))}
-						</ListGroup>
-					</Row>
-				)} */}
 				<Form>
 					<Form.Group id='request'>
 						<Form.Label>What do you need?</Form.Label>

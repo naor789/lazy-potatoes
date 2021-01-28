@@ -4,8 +4,6 @@ import axios from 'axios'
 import { UserContext } from '../../contexts/UserContext'
 import TripCard from '../TripCard/TripCard';
 import { Row} from 'react-bootstrap';
-import { v4 as uuidv4 } from 'uuid';
-
 
 
 export default function MyTrips() {
