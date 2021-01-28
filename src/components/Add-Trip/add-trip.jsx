@@ -108,6 +108,27 @@ const AddTrip = () => {
 		}
 	};
 
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const addTrip = {
+//       //we need to add the username to the trip card
+//       email: currentUser.email,
+//       name: currentUser.firstName,
+//       area: area,
+//       time: time,
+//       date: date,
+//       store: store,
+//       quantity: quantity,
+// 	  };
+	  
+//     const response = await axios.post(`${baseURL}/api/newtrip`, addTrip);
+//     setMessage(`Thank ${currentUser.firstName}! Your new trip was added.`);
+//     // setTime(null);
+//     // setDate(null);
+//     // setStore("");
+//     // setQuantity(null);
+//     // setArea();
+//   };
 	return (
 		<div className='container mb-5 w-50'>
 			{message && <Alert>{message}</Alert>}

@@ -33,7 +33,7 @@ export default function Home() {
 				<Col md='4'>
 					<h4>How does it work? </h4>
 					<p>
-						<b>First, you need to log-in or sign up to participate</b> <br />
+						<b>First, you need to log-in or sign up to participate</b><br/>
 						When you sign up, you are awarded 20 points. <br />
 						Every time you ask for something, you give that person point. <br />
 						Every time you bring something to a potatoe, you earn points. <br />
