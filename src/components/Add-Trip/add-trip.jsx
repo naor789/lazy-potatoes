@@ -3,6 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
 import './add-trip.css';
+import { useHistory } from 'react-router-dom';
 export const areas = [
 	'Select area',
 	'Afeka',
@@ -78,6 +79,7 @@ export const areas = [
 ];
 
 const AddTrip = () => {
+	const history = useHistory();
 	const { currentUser, baseURL } = useContext(UserContext);
 	const [time, setTime] = useState();
 	const [date, setDate] = useState();
@@ -106,29 +108,8 @@ const AddTrip = () => {
 			setQuantity('');
 			setArea('');
 		}
+		history.push('/mytrips');
 	};
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const addTrip = {
-//       //we need to add the username to the trip card
-//       email: currentUser.email,
-//       name: currentUser.firstName,
-//       area: area,
-//       time: time,
-//       date: date,
-//       store: store,
-//       quantity: quantity,
-// 	  };
-	  
-//     const response = await axios.post(`${baseURL}/api/newtrip`, addTrip);
-//     setMessage(`Thank ${currentUser.firstName}! Your new trip was added.`);
-//     // setTime(null);
-//     // setDate(null);
-//     // setStore("");
-//     // setQuantity(null);
-//     // setArea();
-//   };
 	return (
 		<div className='container mb-5 w-50'>
 			{message && <Alert>{message}</Alert>}

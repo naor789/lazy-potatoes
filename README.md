@@ -8,5 +8,5 @@ Check our app, select your area, and see where your neighbors are going shopping
 
 Check out our app to learn more!
 
-This project was built with love, React, MongoDB, Node.js and Express
+This project was built with love, React, MongoDB, Mongoose, Node.js, Express, JWT
 By Naor Kahalany, Ruti Zwick and Juliet Gavison.
