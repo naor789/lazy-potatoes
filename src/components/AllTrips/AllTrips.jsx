@@ -32,7 +32,6 @@ export default function AllTrips() {
 		<>
 			<div className='container mb-5 '>
 				<h1>Available Trips</h1>
-
 				<Form>
 					<Form.Group controlId='searchArea'>
 						<Row className='justify-content-md-center'>
@@ -68,14 +67,14 @@ export default function AllTrips() {
 				{allTrips && (
 					<Row className='m-3'>
 						{allTrips.map(trip => (
-							<TripCard key={trip.id} trip={trip} />
+							<TripCard key={trip._id} trip={trip} />
 						))}
 					</Row>
 				)}
 				{showAllTrips && (
 					<Row className='m-3'>
 						{showAllTrips.map(trip => (
-							<TripCard key={trip.id} trip={trip} />
+							<TripCard key={trip._id} trip={trip} />
 						))}
 					</Row>
 				)}

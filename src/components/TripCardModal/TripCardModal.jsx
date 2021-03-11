@@ -41,12 +41,8 @@ export default function TripCardModal(props) {
 		};
 		props.onHide();
 		sendRequest(requestObject);
+		history.push('/alltrips');
 	}
-
-	// const handleClose = () => {
-	// history.push("/alltrips");
-
-	// }
 
 	const sendRequest = async requestObject => {
 		const res = await axios.put(`${baseURL}/api/addRequest`, requestObject);
@@ -70,11 +66,7 @@ export default function TripCardModal(props) {
 				</p>
 			</Alert>
 			<Modal.Header>
-				<Button
-					variant='light'
-					type='button'
-					// onClick={handleClose}
-				>
+				<Button variant='light' type='button'>
 					x
 				</Button>
 

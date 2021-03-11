@@ -20,8 +20,8 @@ export default function Home() {
 				<Col md='4'>
 					<p className='home-text'>
 						Welcome to our platform. Here, you can post your trips to the
-						makolet, ask a neighbor to bring you something from teh makolet if
-						you are in potatoe-mode, through a simple point system.
+						makolet, ask a neighbor to bring you something from the makolet if
+						you are in potato-mode, through a simple point system.
 					</p>
 				</Col>
 				<Col md='4'></Col>
@@ -33,7 +33,12 @@ export default function Home() {
 				<Col md='4'>
 					<h4>How does it work? </h4>
 					<p>
-						<b>First, you need to log-in or sign up to participate</b><br/>
+						<h5>
+							<strong>
+								First, you need to log-in or sign up to participate
+							</strong>
+						</h5>
+						<br />
 						When you sign up, you are awarded 20 points. <br />
 						Every time you ask for something, you give that person point. <br />
 						Every time you bring something to a potatoe, you earn points. <br />
@@ -51,9 +56,9 @@ export default function Home() {
 						<Button className='home-button m-4'> All trips </Button>
 					</Link>
 					<Link to='/add-trip'>
-						<Button disabled={!currentUser} className='home-button m-4'>
-							Add a new trip
-						</Button>
+						{currentUser && (
+							<Button className='home-button m-4'>Add a new trip</Button>
+						)}
 					</Link>
 				</Col>
 				<Col md='4'></Col>

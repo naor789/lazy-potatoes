@@ -10,6 +10,7 @@ import AllTrips from './components/AllTrips/AllTrips';
 import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer';
 import MyTrips from './components/My-Trips/MyTrips';
+import SignOut from './components/SignOut';
 
 export const baseURL = 'http://localhost:5000';
 
@@ -29,7 +30,6 @@ function App() {
 	const value = {
 		currentUser,
 		setCurrentUser,
-		baseURL,
 	};
 
 	return (
@@ -46,15 +46,18 @@ function App() {
 								<Link className='nav' to='/'>
 									Home
 								</Link>
-								<Link className='nav' to='/mytrips'>
-									My Trips
-								</Link>
+								{currentUser && (
+									<Link className='nav' to='/mytrips'>
+										My Trips
+									</Link>
+								)}
 								<Link className='nav' to='/alltrips'>
 									All Trips
 								</Link>
 								<form className='form-inline my-2 my-lg-0 float-end'>
 									<ModalLogIn />
 									<ModalSignUp />
+									<SignOut />
 								</form>
 							</Nav>
 						</Navbar>
@@ -64,20 +67,21 @@ function App() {
 							<Route exact path='/'>
 								<Home />
 							</Route>
-							<Route path='/add-trip'>
-								<AddTrip />
-							</Route>
+							{currentUser && (
+								<Route path='/add-trip'>
+									<AddTrip />
+								</Route>
+							)}
 							<Route path='/alltrips'>
 								<AllTrips />
 							</Route>
-							<Route path='/mytrips'>
+							<Route path='/mytrips' component={MyTrips}>
 								<MyTrips />
 							</Route>
 						</Switch>
 					</Container>
-
-					<Footer />
 				</div>
+				<Footer />
 			</Router>
 		</UserContext.Provider>
 	);

@@ -1,9 +1,18 @@
 import { useState, useContext } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import {
+	Form,
+	Button,
+	Alert,
+	Toast,
+	ToastHeader,
+	ToastBody,
+} from 'react-bootstrap';
 import axios from 'axios';
+import { baseURL } from '../../axios-routes';
 import { UserContext } from '../../contexts/UserContext';
 import './add-trip.css';
 import { useHistory } from 'react-router-dom';
+
 export const areas = [
 	'Select area',
 	'Afeka',
@@ -79,8 +88,9 @@ export const areas = [
 ];
 
 const AddTrip = () => {
+	const [show, setShow] = useState(false);
 	const history = useHistory();
-	const { currentUser, baseURL } = useContext(UserContext);
+	const { currentUser } = useContext(UserContext);
 	const [time, setTime] = useState();
 	const [date, setDate] = useState();
 	const [store, setStore] = useState();
@@ -108,11 +118,16 @@ const AddTrip = () => {
 			setQuantity('');
 			setArea('');
 		}
-		history.push('/mytrips');
+		// history.push('/mytrips');
 	};
 	return (
 		<div className='container mb-5 w-50'>
-			{message && <Alert>{message}</Alert>}
+			{message && (
+				<Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+					<ToastHeader>Thank You!</ToastHeader>
+					<ToastBody>{message}</ToastBody>
+				</Toast>
+			)}
 			<Form onSubmit={handleSubmit}>
 				<Form.Group controlId='Type'>
 					<Form.Label className='mt-1'>Choose your area</Form.Label>
@@ -172,7 +187,7 @@ const AddTrip = () => {
 						<Alert variant='danger'>can't add more than 3 items!</Alert>
 					)}
 				</Form.Group>
-				{time && date && store && quantity && area ? (
+				{time && date && store && quantity && area && currentUser.email ? (
 					<Button
 						onClick={handleSubmit}
 						className='button mt-3 submit-button'

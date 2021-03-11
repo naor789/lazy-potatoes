@@ -4,30 +4,22 @@ import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
 import TripCard from '../TripCard/TripCard';
 import { Row } from 'react-bootstrap';
-import { v4 as uuidv4 } from 'uuid';
+import { baseURL } from '../../App';
+// import { v4 as uuidv4 } from 'uuid';
 
 export default function MyTrips() {
-	const { currentUser, baseURL } = useContext(UserContext);
-
-	const [myTrips, setMyTrips] = useState([]);
+	const { currentUser } = useContext(UserContext);
 	const [allTrips, setAllTrips] = useState([]);
-
-	const getAllTrips = async () => {
-		const res = await axios.get(`${baseURL}/api/alltrips`);
-		setAllTrips(res.data);
-		const findMyTrips = () =>
-			allTrips.filter(trip => {
-				return trip.email === currentUser.email;
-			});
-		setMyTrips(findMyTrips);
-	};
+	const [myTrips, setMyTrips] = useState([]);
 
 	useEffect(() => {
-		getAllTrips();
+		const res = axios.get(`${baseURL}/api/alltrips`);
+		setAllTrips(res.data);
+		setMyTrips(allTrips.filter(trip => currentUser.email === trip.email));
 	}, []);
 
 	return (
-		<div>
+		<div className='mytrips'>
 			<h1>My Trips</h1>
 			{myTrips && (
 				<Row className='m-3'>

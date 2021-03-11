@@ -1,110 +1,79 @@
 body {
-  /* background-image: url(./img/‏‏imgA.png), url(./img/‏‏imgD.png);
-  background-position: left center, right center;
-  object-fit: cover;
-  background-repeat: no-repeat; */
-  height: 100vh;
-  font-family: "Lato", sans-serif;
+	height: 100vh;
+	font-family: 'Lato', sans-serif;
 }
 .homePage {
-  position: relative;
-  /* justify-content: center; */
+	position: relative;
 }
-/* .imgA {
-  margin-top: 14px;
-  margin-left: -28px;
-  position: absolute;
-}
-.imgD {
-  margin-top: 14px;
-  margin-left: 360px;
-  position: absolute;
-} */
 
 .request {
-  border: 1px solid black;
+	border: 1px solid black;
 }
 
 .nav {
-  color: white;
-  font-size: 25px;
-  text-decoration: none;
+	color: white;
+	font-size: 25px;
+	text-decoration: none;
 }
 
 .nav-profile {
-  color: white;
-  font-size: 25px;
-  text-decoration: none;
-  margin-left: -852px;
+	color: white;
+	font-size: 25px;
+	text-decoration: none;
+	margin-left: -852px;
 }
 
 .nav:hover,
 .nav-profile:hover {
-  color: darkslategray;
+	color: darkslategray;
 }
 
 .bg-dark {
-  /* background-color: #f2e394 !important; */
-  /* background-color: #b4bf5e !important; */
-  background-color: #1a1948 !important;
+	background-color: #1a1948 !important;
 }
-
-/* .home-heading {
-  position: absolute;
-  z-index: 99;
-  left: 474px;
-}
-.home-text {
-  position: absolute;
-  z-index: 99;
-  top: 73px;
-  right: 387px;
-} */
 
 .buttons-login-signup {
-  /* background-color: #588c7e;
+	/* background-color: #588c7e;
   border: #588c7e; */
-  /* background-color: #485922;
+	/* background-color: #485922;
   border: #485922;   */
-  background-color: #89c5cc;
-  border: #89c5cc;
+	background-color: #89c5cc;
+	border: #89c5cc;
 }
 
 .button:hover {
-  background-color: #34495e;
-  border: #34495e;
+	background-color: #34495e;
+	border: #34495e;
+}
+
+.signout {
+	background-color: #bb2a1f;
 }
 
 .home-button {
-  /* position: absolute;
-	z-index: 99;
-	top: 270px;
-	left: 759px; */
-  padding: 10px 20px;
-  font-size: 20px;
-  /* background-color: #34495e;
-  border: #34495e; */
-  background-color: #d84034;
-  border: #d84034;
+	padding: 10px 20px;
+	font-size: 20px;
+	background-color: #d84034;
+	border: #d84034;
 }
 
 .home-button:hover {
-  background-color: #bb2a1f;
-  border: #bb2a1f;
+	background-color: #bb2a1f;
+	border: #bb2a1f;
 }
 
 .footer {
-  margin-top: 1rem;
-  padding: 1rem;
-  /* background-color: rgb(235, 195, 64); */
-  background-color: #e4e4e4;
-  opacity: 0.4;
-  /* position: fixed; */
-  bottom: 0;
-  left: 0;
-  width: 100%;
+	padding: 0.5rem;
+	/* background-color: rgb(235, 195, 64); */
+	background-color: #e4e4e4;
+	opacity: 0.4;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 }
 
 h1 {
-  text-align: center;
+	text-align: center;
 }
