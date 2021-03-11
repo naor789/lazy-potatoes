@@ -5,10 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { UserContext } from '../../contexts/UserContext';
 import { useHistory } from 'react-router-dom';
+import { baseURL } from '../../App';
 
 export default function TripCardModal(props) {
 	const history = useHistory();
-	const { currentUser, baseURL } = useContext(UserContext);
+	const { currentUser } = useContext(UserContext);
 	const { area, date, time, store, quantity, name, _id } = props.trip;
 
 	const [reqItem1, setReqItem1] = useState('');
@@ -45,7 +46,7 @@ export default function TripCardModal(props) {
 	}
 
 	const sendRequest = async requestObject => {
-		const res = await axios.put(`${baseURL}/api/addRequest`, requestObject);
+		await axios.put(`${baseURL}/api/addRequest`, requestObject);
 	};
 
 	return (

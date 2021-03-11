@@ -37,7 +37,7 @@ export default function ModalLogIn() {
 
 		setCurrentUser(logIn.data);
 		localStorage.setItem('user', JSON.stringify(logIn.data));
-		const reload = window.location.reload();
+		window.location.reload();
 	};
 
 	return (

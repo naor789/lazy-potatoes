@@ -8,7 +8,7 @@ import {
 	ToastBody,
 } from 'react-bootstrap';
 import axios from 'axios';
-import { baseURL } from '../../axios-routes';
+import { baseURL } from '../../App';
 import { UserContext } from '../../contexts/UserContext';
 import './add-trip.css';
 import { useHistory } from 'react-router-dom';

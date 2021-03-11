@@ -8,7 +8,6 @@ import { UserContext } from '../contexts/UserContext';
 
 export default function Home() {
 	const { currentUser } = useContext(UserContext);
-	//   const url = "http://localhost:3000/";
 
 	return (
 		<div className='container homePage'>
@@ -41,7 +40,7 @@ export default function Home() {
 						<br />
 						When you sign up, you are awarded 20 points. <br />
 						Every time you ask for something, you give that person point. <br />
-						Every time you bring something to a potatoe, you earn points. <br />
+						Every time you bring something to a potato, you earn points. <br />
 						Simple enough, isn't it?
 					</p>
 				</Col>

@@ -1,31 +1,43 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Row, Form, Button, Col } from 'react-bootstrap';
 import TripCard from '../TripCard/TripCard';
 import { areas } from '../Add-Trip/add-trip';
 import { baseURL } from '../../App';
 import './allTrips.css';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function AllTrips() {
 	const [allTrips, setAllTrips] = useState([]);
 	const [showAllTrips, setShowAllTrips] = useState([]);
 	const [searchArea, setSearchArea] = useState();
+	const { currentUser } = useContext(UserContext);
 
 	useEffect(() => {
-		const showAllTrips = async () => {
-			const res = await axios.get(`${baseURL}/api/alltrips`);
-			setAllTrips(res.data);
-			setShowAllTrips(allTrips.reverse());
-		};
-		showAllTrips();
+		handleAllTrips();
+		// eslint-disable-next-line
 	}, []);
 
-	const handleSearch = async event => {
+	const handleSearchArea = async event => {
 		event.preventDefault();
 		const res = await axios.get(
 			`http://localhost:5000/api/alltrips/search?area=${searchArea}`
 		);
 		setAllTrips(res.data);
+	};
+
+	const handleMyTrips = async e => {
+		e.preventDefault();
+		const res = await axios.get(
+			`${baseURL}/api/alltrips/search?email=${currentUser.email}`
+		);
+		setAllTrips(res.data);
+	};
+
+	const handleAllTrips = async () => {
+		const res = await axios.get(`${baseURL}/api/alltrips`);
+		setAllTrips(res.data);
+		setShowAllTrips(allTrips.reverse());
 	};
 
 	return (
@@ -35,7 +47,13 @@ export default function AllTrips() {
 				<Form>
 					<Form.Group controlId='searchArea'>
 						<Row className='justify-content-md-center'>
-							<Col xs lg='2'></Col>
+							<Col xs lg='2'>
+								<Button onClick={handleAllTrips}>All Trips</Button>
+							</Col>
+
+							<Col xs lg='2'>
+								<Button onClick={handleMyTrips}>My Trips</Button>
+							</Col>
 							<Col md='auto'>
 								<Form.Control
 									aria-label='Select your area'
@@ -55,7 +73,7 @@ export default function AllTrips() {
 							<Col md='auto'>
 								<Button
 									className='searchBtn'
-									onClick={handleSearch}
+									onClick={handleSearchArea}
 									type='submit'>
 									Search
 								</Button>

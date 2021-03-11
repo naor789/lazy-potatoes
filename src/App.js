@@ -1,15 +1,14 @@
 import React, { useEffect, useState, createRef } from 'react';
 import './App.css';
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import Home from './components/Home';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { UserContext } from './contexts/UserContext';
+import Home from './components/Home';
 import ModalLogIn from './components/ModalLogIn';
 import ModalSignUp from './components/ModalSignUp';
 import AddTrip from './components/Add-Trip/add-trip';
 import AllTrips from './components/AllTrips/AllTrips';
-import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer';
-import MyTrips from './components/My-Trips/MyTrips';
 import SignOut from './components/SignOut';
 
 export const baseURL = 'http://localhost:5000';
@@ -24,13 +23,11 @@ function App() {
 			const foundUser = JSON.parse(loggedInUser);
 			setCurrentUser(foundUser);
 		}
+
 		const node = wrapper.current;
 	}, []);
 
-	const value = {
-		currentUser,
-		setCurrentUser,
-	};
+	const value = { currentUser, setCurrentUser };
 
 	return (
 		<UserContext.Provider value={value}>
@@ -46,11 +43,11 @@ function App() {
 								<Link className='nav' to='/'>
 									Home
 								</Link>
-								{currentUser && (
-									<Link className='nav' to='/mytrips'>
-										My Trips
-									</Link>
-								)}
+
+								<Link className='nav' to='/mytrips'>
+									My Trips
+								</Link>
+
 								<Link className='nav' to='/alltrips'>
 									All Trips
 								</Link>
@@ -74,9 +71,6 @@ function App() {
 							)}
 							<Route path='/alltrips'>
 								<AllTrips />
-							</Route>
-							<Route path='/mytrips' component={MyTrips}>
-								<MyTrips />
 							</Route>
 						</Switch>
 					</Container>
