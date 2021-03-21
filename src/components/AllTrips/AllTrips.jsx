@@ -1,6 +1,14 @@
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { Row, Form, Button, Col } from 'react-bootstrap';
+import {
+	Row,
+	Form,
+	Button,
+	Col,
+	Toast,
+	ToastBody,
+	ToastHeader,
+} from 'react-bootstrap';
 import TripCard from '../TripCard/TripCard';
 import { areas } from '../Add-Trip/add-trip';
 import { baseURL } from '../../App';
@@ -12,6 +20,8 @@ export default function AllTrips() {
 	const [showAllTrips, setShowAllTrips] = useState([]);
 	const [searchArea, setSearchArea] = useState();
 	const { currentUser } = useContext(UserContext);
+	const [message, setMessage] = useState('');
+	const [show, setShow] = useState(false);
 
 	useEffect(() => {
 		handleAllTrips();
@@ -21,17 +31,20 @@ export default function AllTrips() {
 	const handleSearchArea = async event => {
 		event.preventDefault();
 		const res = await axios.get(
-			`http://localhost:5000/api/alltrips/search?area=${searchArea}`
+			`${baseURL}/api/alltrips/search?area=${searchArea}`
 		);
 		setAllTrips(res.data);
 	};
 
 	const handleMyTrips = async e => {
 		e.preventDefault();
-		const res = await axios.get(
-			`${baseURL}/api/alltrips/search?email=${currentUser.email}`
-		);
-		setAllTrips(res.data);
+		if (currentUser.email === undefined) setMessage(`You aren't logged in!`);
+		else {
+			const res = await axios.get(
+				`${baseURL}/api/alltrips/search?email=${currentUser.email}`
+			);
+			setAllTrips(res.data);
+		}
 	};
 
 	const handleAllTrips = async () => {
@@ -82,6 +95,18 @@ export default function AllTrips() {
 						</Row>
 					</Form.Group>
 				</Form>
+
+				{message && (
+					<Toast
+						onClose={() => setShow(false)}
+						show={show}
+						delay={5000}
+						autohide>
+						<ToastHeader>Oops!</ToastHeader>
+						<ToastBody>{message}</ToastBody>
+					</Toast>
+				)}
+
 				{allTrips && (
 					<Row className='m-3'>
 						{allTrips.map(trip => (

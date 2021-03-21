@@ -11,7 +11,8 @@ import AllTrips from './components/AllTrips/AllTrips';
 import Footer from './components/Footer';
 import SignOut from './components/SignOut';
 
-export const baseURL = 'http://localhost:5000';
+//export const baseURL = 'http://localhost:5000';
+export const baseURL = 'https://lazypotatoes.herokuapp.com';
 
 function App() {
 	const [currentUser, setCurrentUser] = useState('');
@@ -42,10 +43,6 @@ function App() {
 							<Nav className='collapse navbar-collapse d-flex justify-content-between'>
 								<Link className='nav' to='/'>
 									Home
-								</Link>
-
-								<Link className='nav' to='/mytrips'>
-									My Trips
 								</Link>
 
 								<Link className='nav' to='/alltrips'>
